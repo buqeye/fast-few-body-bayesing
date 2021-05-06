@@ -1,5 +1,7 @@
 # fast-few-body-bayesing
 
+The corresponding arXiv publication can be found [here](https://arxiv.org/abs/2104.04441).
+
 This package is built to calculate posterior probability distributions 
 for three-body low-energy constants at next-to-next-to-leading order (NNLO) in chiral nuclear forces. 
 Eigenvector continuation (EC/ Ritz Method) 
