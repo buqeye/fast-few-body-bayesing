@@ -1,0 +1,55 @@
+parameters:
+  seed: 1
+#  dimensions: 2
+  names: ["c_D", "c_E"]
+  ranges: [[-5, 5], [-5, 5]]
+  number_evc_basis: 15
+  posterior_parameters:
+    include_in_emulator: False  # True, False, or "gradient"
+    gradient_precision: 1e-6
+    training_range_in_std_devs: 3
+    names: [
+        "Ct_1S0np",
+        "Ct_1S0nn",
+        "Ct_1S0pp",
+        "Ct_3S1",
+        "C_1S0",
+        "C_3P0",
+        "C_1P1",
+        "C_3P1",
+        "C_3S1",
+        "C_3S1-3D1",
+        "C_3P2",
+    ]
+    mean_file: "parameters/nnlo_450_nn_lecs.yaml"
+    covariance_file: "nn_lecs_cov.npy"
+  validation:
+      use: True
+      seed: 42
+      number: 100
+training:
+  estimate_evc_error: False
+  output_directory: "output"
+  matrix_directory: "../MatrixElements_fit3bfs_uniform"
+hamiltonian:
+  H3:
+#    matrix_file: 'H_H3_NNLO_450_Nmax40_hw36_vary_nn-and-3bfs.h5'
+    matrix_file: 'H_H3_NNLO_450_Nmax40_hw36_vary_3bfs.h5'
+  He3:
+#    matrix_file: 'H_He3_NNLO_450_Nmax40_hw36_vary_nn-and-3bfs.h5'
+    matrix_file: 'H_He3_NNLO_450_Nmax40_hw36_vary_3bfs.h5'
+  He4:
+#    matrix_file: 'H_He4_NNLO_450_Nmax18_hw36_vary_nn-and-3bfs.h5'
+    matrix_file: 'H_He4_NNLO_450_Nmax18_hw36_vary_3bfs.h5'
+operator:
+  He4-radius:
+    operator: 'RadiusOperator'
+    hamiltonian: 'He4'
+    hamiltonian_right: null
+    matrix_file: 'r2_He4_Nmax18_hw36.h5'
+  H3-halflife:
+    operator: 'TritonHalfLifeOperator'
+    hamiltonian: 'He3'
+    hamiltonian_right: 'H3'
+#    matrix_file: 'E1A_cut450_Nmax40_hw36_NNLO_450_vary_nn-and-3bfs.h5'
+    matrix_file: 'E1A_cut450_Nmax40_hw36_NNLO_450_vary_3bfs.h5'

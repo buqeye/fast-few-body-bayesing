@@ -1,0 +1,84 @@
+mcmc:
+  output_file: "samples.h5"
+  object_directory: 'output/NNLO_450/3a52d8f630f20df7a76019814a7ca86e'
+  store_predictions: True
+  seed: 2
+  number_of_walkers: 50
+  number_of_burn_in: 2000
+  number_of_samples: 50000
+  parameter_names: [
+      "Ct_1S0np",
+      "Ct_1S0nn",
+      "Ct_1S0pp",
+      "Ct_3S1",
+      "C_1S0",
+      "C_3P0",
+      "C_1P1",
+      "C_3P1",
+      "C_3S1",
+      "C_3S1-3D1",
+      "C_3P2",
+      "c_D",
+      "c_E",
+  ]
+  posterior_parameter_names: [
+      "Ct_1S0np",
+      "Ct_1S0nn",
+      "Ct_1S0pp",
+      "Ct_3S1",
+      "C_1S0",
+      "C_3P0",
+      "C_1P1",
+      "C_3P1",
+      "C_3S1",
+      "C_3S1-3D1",
+      "C_3P2",
+  ]
+hyperparameters:
+  cbar:
+#    degrees_of_freedom: 4
+#    scale: 1
+    degrees_of_freedom: 1.5
+    scale: 1.5
+    fixed_value: Null
+  Q:
+#    a: 30.65
+#    b: 50
+    a: 3
+    b: 5
+    fixed_value: Null
+  EFT_order: 3
+  y_ref: "expt"
+  truncation_ignore_observables: ["H3-halflife"]
+  y_lower: #[[-8.38], [-30.21], [1.33]]  # N_obs x N_orders
+    H3: [-8.38]
+    He4: [-30.21]
+    He4-radius: [1.33]
+  orders_lower: [2]
+  ignore_orders: [2]
+  deg_quadrature: 80
+  mean_file: "parameters/nnlo_450_nn_lecs.yaml"
+  posterior_parameters_covariance_file: "nn_lecs_cov.npy"
+  prior_standard_deviation: 5.0
+  use_gradients: False
+observables:
+  H3:
+    experiment_central_value: -8.482
+#    experiment_standard_deviation: 0.0001
+    experiment_standard_deviation: 0.015
+    fit: True
+  He3:
+    fit: False  # Always false, it is the isospin mirror of H3.
+  He4:
+    experiment_central_value: -28.296
+#    experiment_standard_deviation: 0.0001
+    experiment_standard_deviation: 0.005
+    fit: True
+  He4-radius:
+    experiment_central_value: 1.4552
+    experiment_standard_deviation: 0.0062
+    fit: True
+  H3-halflife:
+    experiment_central_value: 1129.6
+    experiment_standard_deviation: 3.0
+    fit: True
