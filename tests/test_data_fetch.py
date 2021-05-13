@@ -15,7 +15,7 @@ DATA_PATH = join("/Volumes/Extreme SSD/MatrixElements", DATA_TARGET_DIR)
 # Don't change these unless you have a reason
 ####################################################################
 ID_DICT = {
-    #'E1A_3BFS_ONLY' : 27925692,
+    'E1A_3BFS_ONLY' : 27925692,
     'E1A_NN_AND_3BFS' : 27925698,
     'H_H3_3BFS_ONLY' : 27925701,
     'H_H3_NN_AND_3BFS' : 27925704,
@@ -27,7 +27,7 @@ ID_DICT = {
 }
 
 FILENAMES = {
-    #'E1A_3BFS_ONLY' : 'E1A_cut450_Nmax40_hw36_NNLO_450_vary_3bfs.h5',
+    'E1A_3BFS_ONLY' : 'E1A_cut450_Nmax40_hw36_NNLO_450_vary_3bfs.h5',
     'E1A_NN_AND_3BFS': 'E1A_cut450_Nmax40_hw36_NNLO_450_vary_nn-and-3bfs.h5',
     'H_H3_3BFS_ONLY' : 'H_H3_NNLO_450_Nmax40_hw36_vary_3bfs.h5',
     'H_H3_NN_AND_3BFS' : 'H_H3_NNLO_450_Nmax40_hw36_vary_nn-and-3bfs.h5',
